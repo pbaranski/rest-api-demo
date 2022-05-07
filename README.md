@@ -15,7 +15,7 @@ Instructions how to deploy presented service to various free hosting sites.
 
 
 ## Deploy to **Heroku**
-<a href="https://heroku.com/deploy?template=https://github.com/jaktestowac/rest-api-demo/tree/master">
+<a href="https://heroku.com/deploy?template=https://github.com/jaktestowac/rest-api-demo/tree/main">
     <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 
