@@ -4,7 +4,7 @@ This application was prepared and developed **only for testing purposes**. It pr
 - GUI
 - API
 
-All data are stored in 
+All data (such as users and other entities) are stored in json file.
 
 # Deploy `rest-api-demo` to `Heroku`
 
