@@ -4,15 +4,26 @@ This application was prepared and developed **only for testing purposes**. It pr
 - GUI
 - API
 
-All data (such as users and other entities) are stored in json file.
+All data (such as users and other entities) are stored in json file. 
 
-# Deploy `rest-api-demo` to `Heroku`
+# Deployment
 
 Instructions how to deploy presented service to various free hosting sites. 
 
 
 * [Deploy to Heroku](#deploy-to-heroku)
 
+## Deploy on **Local**
+
+Requirements:
+- **node.js** installed in system
+
+Steps:
+1. Open project root directory in cmd/terminal
+1. Run `npm i`
+1. Run `npm run start`
+
+Application will be available at `http://localhost:3000`
 
 ## Deploy to **Heroku**
 <a href="https://heroku.com/deploy?template=https://github.com/jaktestowac/rest-api-demo/tree/main">
