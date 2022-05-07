@@ -4,7 +4,7 @@ This application was prepared and developed **only for testing purposes**. It pr
 - GUI
 - API
 
-All data (such as users and other entities) are stored in json file. 
+All data (such as users and other entities) are stored in json file.
 
 # Deployment
 
@@ -31,6 +31,10 @@ Application will be available at `http://localhost:3000`
 </a>
 
 Heroku is a free hosting service for hosting small projects. Easy setup and deploy from the command line via _git_.
+**Data are not persistent! They will be restored to default state** after shutting down application after 30 mins of inactivity.
+If an app has a free web dyno, and that dyno receives no web traffic in a 30-minute period, it will sleep.
+More: https://devcenter.heroku.com/articles/free-dyno-hours#dyno-sleeping
+
 
 ###### Pros
 
@@ -40,6 +44,7 @@ Heroku is a free hosting service for hosting small projects. Easy setup and depl
 
 ###### Cons (Free Version)
 
-* Application is shut down after 30 mins of inactivity. Starts back up when you visit the site but it takes a few extra seconds.
+* Application is shut down after 30 mins of inactivity.
+  Starts back up when you visit the site but it takes a few extra seconds.
 
 
