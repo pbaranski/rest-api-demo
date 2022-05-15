@@ -224,7 +224,7 @@ const showEditForm = (ev) => {
 
 const showEmailEditForm = (ev) => {
   const id = ev.target.id;
-  const url = endpoint + "/" + id;
+  const url = usersEndpoint + "/" + id;
   const cardElement = ev.target.parentElement.parentElement;
   fetch(url)
     .then((response) => response.json())
@@ -296,6 +296,7 @@ const getItemHTML = (item) => {
         <label>firstname:</label><span>${item.firstname}</span><br>
         <label>lastname:</label><span>${item.lastname}</span><br>
         <label>email:</label><span>${item.email}</span><br>
+        <label>email:</label><span>${item.email}</span><i class="fas fa-edit emailEdit" id="${item.id}"></i><br>
         <label>avatar:</label><img src="${item.avatar}" />
     </div>`;
 };
