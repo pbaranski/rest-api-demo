@@ -4,7 +4,7 @@
     "title": "REST demo",
     "description": "This is a sample REST serverform jaktestowac.pl .",
     "termsOfService": "http://jaktestowac.pl/",
-    "version": "1.0.0"
+    "version": "1.2.0"
   },
   "externalDocs": {
     "description": "Find out more about Swagger",
@@ -12,7 +12,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000/api"
+      "url": "https://rest-demo-jt.herokuapp.com/api"
     }
   ],
   "tags": [
@@ -27,6 +27,10 @@
     {
       "name": "comments",
       "description": "Comments"
+    },
+    {
+      "name": "search",
+      "description": "Search, filter, pagination for given objects"
     },
     {
       "name": "other",
@@ -52,8 +56,7 @@
               }
             }
           }
-        },
-        "x-codegen-request-body-name": "date"
+        }
       },
       "post": {
         "tags": [
@@ -90,8 +93,7 @@
             "description": "Invalid article supplied",
             "content": {}
           }
-        },
-        "x-codegen-request-body-name": "date"
+        }
       }
     },
     "/articles/{id}": {
@@ -330,8 +332,7 @@
               }
             }
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
       },
       "post": {
         "tags": [
@@ -373,8 +374,7 @@
             "description": "Invalid user supplied",
             "content": {}
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
       }
     },
     "/users/{id}": {
@@ -617,13 +617,14 @@
               }
             }
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
       },
       "post": {
-        "security": [{
-          "basicAuth": []
-        }],
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
         "tags": [
           "comments"
         ],
@@ -659,8 +660,7 @@
             "description": "Invalid comment supplied",
             "content": {}
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
       }
     },
     "/comments/{id}": {
@@ -708,9 +708,11 @@
         "tags": [
           "comments"
         ],
-        "security": [{
-          "basicAuth": []
-        }],
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
         "summary": "Updates comment",
         "description": "Updates comment.",
         "operationId": "putComment",
@@ -772,9 +774,11 @@
         }
       },
       "patch": {
-        "security": [{
-          "basicAuth": []
-        }],
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
         "tags": [
           "comments"
         ],
@@ -829,9 +833,11 @@
         }
       },
       "delete": {
-        "security": [{
-          "basicAuth": []
-        }],
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
         "tags": [
           "comments"
         ],
@@ -894,6 +900,129 @@
         }
       }
     },
+     "/articles?": {
+      "get": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Get articles with querry",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Free search articles."
+          },
+          {
+            "in": "query",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "Id of article."
+          },
+          {
+            "in": "query",
+            "name": "user_id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "Id of user, creator of article."
+          },
+          {
+            "in": "query",
+            "name": "_sort",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Sort with given attribute (user_id, title, id), use it with _order."
+          },
+          {
+            "in": "query",
+            "name": "_order",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Order default ascending (asc) for descending use desc."
+          },
+           {
+            "in": "query",
+            "name": "_limit",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "allowEmptyValue": true, 
+            "description": "Limit returned items. By default empty limit is 10."
+          },
+          {
+            "in": "query",
+            "name": "_page",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "Page number when using _limit."
+          },
+          {
+            "in": "query",
+            "name": "_start",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "How many items should be skipped."
+          },
+          {
+            "in": "query",
+            "name": "_end",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "How many to show after _start."
+          },
+                    {
+            "in": "query",
+            "name": "_embed",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Embed depending objects (users, comments)."
+          },
+          {
+            "in": "query",
+            "name": "_expand",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "Expand depending objects (users, comments)."
+          }
+        ],
+        "operationId": "getArticlesQuery",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Articles"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/userpics": {
       "get": {
         "tags": [
@@ -906,8 +1035,7 @@
             "description": "Images received",
             "content": {}
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
       }
     },
     "/allimages": {
@@ -922,8 +1050,7 @@
             "description": "Images received",
             "content": {}
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
       }
     },
     "/restoreDB": {
@@ -938,8 +1065,7 @@
             "description": "Database cleared",
             "content": {}
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
       }
     },
     "/pluginstatuses": {
@@ -954,8 +1080,7 @@
             "description": "successful operation",
             "content": {}
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
       }
     },
     "/token": {
@@ -976,8 +1101,7 @@
               }
             }
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
       }
     }
   },
@@ -995,7 +1119,12 @@
     "schemas": {
       "Article": {
         "type": "object",
-        "required":  ["user_id", "title", "body", "date"],
+        "required": [
+          "user_id",
+          "title",
+          "body",
+          "date"
+        ],
         "properties": {
           "id": {
             "type": "integer",
@@ -1028,8 +1157,7 @@
       },
       "Articles": {
         "type": "array",
-        "items":
-        {
+        "items": {
           "$ref": "#/components/schemas/Article"
         }
       },
@@ -1063,7 +1191,12 @@
       },
       "Comment": {
         "type": "object",
-        "required":  ["user_id", "article_id", "body", "date"],
+        "required": [
+          "user_id",
+          "article_id",
+          "body",
+          "date"
+        ],
         "properties": {
           "id": {
             "type": "integer",
@@ -1092,8 +1225,7 @@
       },
       "Comments": {
         "type": "array",
-        "items":
-        {
+        "items": {
           "$ref": "#/components/schemas/Comment"
         }
       },
@@ -1123,14 +1255,18 @@
       },
       "Users": {
         "type": "array",
-        "items":
-        {
+        "items": {
           "$ref": "#/components/schemas/User"
         }
       },
       "User": {
         "type": "object",
-        "required": ["email", "firstname", "lastname", "avatar"],
+        "required": [
+          "email",
+          "firstname",
+          "lastname",
+          "avatar"
+        ],
         "properties": {
           "id": {
             "type": "integer",
@@ -1181,7 +1317,10 @@
       },
       "Token": {
         "type": "object",
-        "required":  ["token", "validUntil"],
+        "required": [
+          "token",
+          "validUntil"
+        ],
         "properties": {
           "token": {
             "type": "string"
