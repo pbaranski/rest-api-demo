@@ -1,3 +1,4 @@
+const e = require("express");
 const fs = require("fs");
 const path = require("path");
 const {
@@ -263,35 +264,47 @@ const validations = (req, res, next) => {
       }
       const dbData = fs.readFileSync(path.join(__dirname, "db.json"), "utf8");
       const dbDataJson = JSON.parse(dbData);
+
+      let commentId
       if (req.method !== "POST") {
         const urlParts = urlEnds.split("/");
-        const commentId = urlParts[urlParts.length - 1];
-        const foundComment = dbDataJson["comments"].find((comment) => {
-          if (comment["id"]?.toString() === commentId?.toString()) {
-            return comment;
-          }
-        });
-        logDebug("api/comments foundUser:", foundComment);
-        if (foundComment === undefined) {
+        commentId = urlParts[urlParts.length - 1];
+      }
+
+      const foundComment = dbDataJson["comments"].find((comment) => {
+        console.log('comment["id"], commentId', comment["id"], commentId)
+        if (comment["id"]?.toString() === commentId?.toString()) {
+          return comment;
+        }
+      });
+      logDebug("api/comments foundComment:", commentId, foundComment);
+      if (req.method !== "POST" && req.method !== "PUT" && foundComment === undefined) {
           res.status(404).send(formatErrorResponse("Comment not found"));
           return;
-        }
-        if (foundComment["user_id"]?.toString() !== req.body["user_id"]?.toString()) {
+      }
+      if (req.method === "PUT" || req.method === "PATCH") {
+        if (req.body["user_id"] !== undefined && foundComment !== undefined && foundComment["user_id"]?.toString() !== req.body["user_id"]?.toString()) {
           logDebug("Comment user id different from user id in request", foundComment, commentId);
           res.status(403).send(formatErrorResponse("Invalid authorization"));
           return;
         }
+      } 
+      let userId
+      if (req.method !== "POST" && foundComment !== undefined) {
+        userId = foundComment["user_id"]
+      } else {
+        userId = req.body["user_id"]
       }
-      const foundUser = dbDataJson["users"].find((user) => {
-        if (user["id"]?.toString() === req.body["user_id"]?.toString()) {
+      let foundUser = dbDataJson["users"].find((user) => {
+        if (user["id"]?.toString() === userId?.toString()) {
           return user;
         }
       });
+      logDebug("api/comments foundUser:", userId, foundUser);
       if (foundUser === undefined) {
         res.status(404).send(formatErrorResponse("User not found"));
         return;
       }
-      logDebug("api/comments foundUser:", foundUser);
       // const userAuth = btoa(foundUser.email + ":" + foundUser.password);
       const userAuth = Buffer.from(
         foundUser.email + ":" + foundUser.password,
@@ -304,6 +317,11 @@ const validations = (req, res, next) => {
       if (authorization !== `Basic ${userAuth}`) {
         res.status(403).send(formatErrorResponse("Invalid authorization"));
         return;
+      }
+      if (req.method === "PUT" && foundComment === undefined) {
+        req.method = "POST";
+        req.url = req.url.replace(commentId, "");
+        req.body.id = commentId;
       }
     }
     if (req.method === "POST" && urlEnds.includes("/api/comments")) {
