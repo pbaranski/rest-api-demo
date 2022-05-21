@@ -900,7 +900,7 @@
         }
       }
     },
-     "/articles?": {
+    "/articles?": {
       "get": {
         "tags": [
           "search"
@@ -952,14 +952,14 @@
             "required": false,
             "description": "Order default ascending (asc) for descending use desc."
           },
-           {
+          {
             "in": "query",
             "name": "_limit",
             "schema": {
               "type": "integer"
             },
             "required": false,
-            "allowEmptyValue": true, 
+            "allowEmptyValue": true,
             "description": "Limit returned items. By default empty limit is 10."
           },
           {
@@ -989,7 +989,7 @@
             "required": false,
             "description": "How many to show after _start."
           },
-                    {
+          {
             "in": "query",
             "name": "_embed",
             "schema": {
@@ -1002,7 +1002,7 @@
             "in": "query",
             "name": "_expand",
             "schema": {
-              "type": "integer"
+              "type": "string"
             },
             "required": false,
             "description": "Expand depending objects (users, comments)."
