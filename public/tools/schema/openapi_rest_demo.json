@@ -44,26 +44,6 @@
           "articles"
         ],
         "summary": "Get articles",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "id",
-            "schema": {
-              "type": "integer"
-            },
-            "required": false,
-            "description": "Id of article."
-          },
-          {
-            "in": "query",
-            "name": "user_id",
-            "schema": {
-              "type": "integer"
-            },
-            "required": false,
-            "description": "Id of user, creator of article."
-          }
-        ],
         "operationId": "getArticles",
         "responses": {
           "200": {
@@ -956,6 +936,15 @@
           },
           {
             "in": "query",
+            "name": "date",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Date of article creation."
+          },
+          {
+            "in": "query",
             "name": "_sort",
             "schema": {
               "type": "string"
@@ -1043,6 +1032,288 @@
         }
       }
     },
+    "/users?": {
+      "get": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Get users with querry",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Free search users."
+          },
+          {
+            "in": "query",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "Id of user."
+          },
+          {
+            "in": "query",
+            "name": "firstname",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "First name of user."
+          },
+          {
+            "in": "query",
+            "name": "lastname",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Last name of user."
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "User email."
+          },
+          {
+            "in": "query",
+            "name": "_sort",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Sort with given attribute (user_id, title, id), use it with _order."
+          },
+          {
+            "in": "query",
+            "name": "_order",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Order default ascending (asc) for descending use desc."
+          },
+          {
+            "in": "query",
+            "name": "_limit",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "allowEmptyValue": true,
+            "description": "Limit returned items. By default empty limit is 10."
+          },
+          {
+            "in": "query",
+            "name": "_page",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "Page number when using _limit."
+          },
+          {
+            "in": "query",
+            "name": "_start",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "How many items should be skipped."
+          },
+          {
+            "in": "query",
+            "name": "_end",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "How many to show after _start."
+          },
+          {
+            "in": "query",
+            "name": "_embed",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Embed depending objects (users, comments)."
+          },
+          {
+            "in": "query",
+            "name": "_expand",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Expand depending objects (users, comments)."
+          }
+        ],
+        "operationId": "getUsersQuery",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/comments?": {
+      "get": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Get users with querry",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Free search users."
+          },
+          {
+            "in": "query",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "Id of comment."
+          },
+          {
+            "in": "query",
+            "name": "user_id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "Id of user."
+          },
+          {
+            "in": "query",
+            "name": "article_id",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Id fo article."
+          },
+          {
+            "in": "query",
+            "name": "date",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Date of comment creation."
+          },
+          {
+            "in": "query",
+            "name": "_sort",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Sort with given attribute (user_id, title, id), use it with _order."
+          },
+          {
+            "in": "query",
+            "name": "_order",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Order default ascending (asc) for descending use desc."
+          },
+          {
+            "in": "query",
+            "name": "_limit",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "allowEmptyValue": true,
+            "description": "Limit returned items. By default empty limit is 10."
+          },
+          {
+            "in": "query",
+            "name": "_page",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "Page number when using _limit."
+          },
+          {
+            "in": "query",
+            "name": "_start",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "How many items should be skipped."
+          },
+          {
+            "in": "query",
+            "name": "_end",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "How many to show after _start."
+          },
+          {
+            "in": "query",
+            "name": "_embed",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Embed depending objects (users, comments)."
+          },
+          {
+            "in": "query",
+            "name": "_expand",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Expand depending objects (users, comments)."
+          }
+        ],
+        "operationId": "getCommentsQuery",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comments"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/userpics": {
       "get": {
         "tags": [
@@ -1108,7 +1379,7 @@
         "tags": [
           "other"
         ],
-        "summary": "Gets token needed for plugins",
+        "summary": "Gets token needed for plugins. Reset daily at 00:00.",
         "operationId": "getPluginsToken",
         "responses": {
           "default": {
