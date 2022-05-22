@@ -63,7 +63,7 @@
     "/login": {
       "post": {
         "tags": ["admin"],
-        "summary": "login as user",
+        "summary": "login as user, received token will be valid for 1 hour",
         "operationId": "adminLogin",
         "requestBody": {
           "content": {
