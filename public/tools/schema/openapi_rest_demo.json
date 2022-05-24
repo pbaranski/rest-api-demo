@@ -44,26 +44,6 @@
           "articles"
         ],
         "summary": "Get articles",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "id",
-            "schema": {
-              "type": "string"
-            },
-            "required": false,
-            "description": "Id of article."
-          },
-          {
-            "in": "query",
-            "name": "user_id",
-            "schema": {
-              "type": "string"
-            },
-            "required": false,
-            "description": "Id of user, creator of article."
-          }
-        ],
         "operationId": "getArticles",
         "responses": {
           "200": {
@@ -931,7 +911,7 @@
             "in": "query",
             "name": "id",
             "schema": {
-              "type": "integer"
+              "type": "string"
             },
             "required": false,
             "description": "Id of article."
@@ -940,7 +920,7 @@
             "in": "query",
             "name": "user_id",
             "schema": {
-              "type": "integer"
+              "type": "string"
             },
             "required": false,
             "description": "Id of user, creator of article."
@@ -1063,7 +1043,7 @@
             "in": "query",
             "name": "id",
             "schema": {
-              "type": "integer"
+              "type": "string"
             },
             "required": false,
             "description": "Id of user."
@@ -1204,7 +1184,7 @@
             "in": "query",
             "name": "id",
             "schema": {
-              "type": "integer"
+              "type": "string"
             },
             "required": false,
             "description": "Id of comment."
@@ -1213,7 +1193,7 @@
             "in": "query",
             "name": "user_id",
             "schema": {
-              "type": "integer"
+              "type": "string"
             },
             "required": false,
             "description": "Id of user."
