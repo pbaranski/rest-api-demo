@@ -905,7 +905,7 @@
         "tags": [
           "search"
         ],
-        "summary": "Get articles with querry",
+        "summary": "Get articles with query",
         "parameters": [
           {
             "in": "query",
@@ -1037,7 +1037,7 @@
         "tags": [
           "search"
         ],
-        "summary": "Get users with querry",
+        "summary": "Get users with query",
         "parameters": [
           {
             "in": "query",
@@ -1178,7 +1178,7 @@
         "tags": [
           "search"
         ],
-        "summary": "Get users with querry",
+        "summary": "Get users with query",
         "parameters": [
           {
             "in": "query",
