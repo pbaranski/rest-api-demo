@@ -161,7 +161,7 @@ const validations = (req, res, next) => {
     }
     if (req.method === "PUT" && urlEnds.includes("/api/users/")) {
       const urlParts = urlEnds.split("/");
-      const userId = urlParts[urlParts.length - 1];
+      let userId = urlParts[urlParts.length - 1];
       // validate mandatory fields:
       if (
         !are_mandatory_fields_valid(req.body, mandatory_non_empty_fields_user)
@@ -215,7 +215,10 @@ const validations = (req, res, next) => {
       });
       if (foundUser === undefined) {
         req.method = "POST";
-        req.url = req.url.replace(userId, "");
+        req.url = req.url.replace(`/${userId}`, "");
+        if (parseInt(userId).toString() === userId){
+          userId = parseInt(userId);
+        }
         req.body.id = userId;
       }
     }
@@ -320,7 +323,10 @@ const validations = (req, res, next) => {
       }
       if (req.method === "PUT" && foundComment === undefined) {
         req.method = "POST";
-        req.url = req.url.replace(commentId, "");
+        req.url = req.url.replace(`/${commentId}`, "");
+        if (parseInt(commentId).toString() === commentId){
+          commentId = parseInt(commentId);
+        }
         req.body.id = commentId;
       }
     }
@@ -453,7 +459,7 @@ const validations = (req, res, next) => {
         return;
       }
       const urlParts = urlEnds.split("/");
-      const articleId = urlParts[urlParts.length - 1];
+      let articleId = urlParts[urlParts.length - 1];
       const dbData = fs.readFileSync(path.join(__dirname, "db.json"), "utf8");
       const dbDataJson = JSON.parse(dbData);
       const foundArticle = dbDataJson["articles"].find((article) => {
@@ -463,7 +469,10 @@ const validations = (req, res, next) => {
       });
       if (foundArticle === undefined) {
         req.method = "POST";
-        req.url = req.url.replace(articleId, "");
+        req.url = req.url.replace(`/${articleId}`, "");
+        if (parseInt(articleId).toString() === articleId){
+          articleId = parseInt(articleId);
+        }
         req.body.id = articleId;
       }
     }
