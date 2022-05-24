@@ -111,8 +111,7 @@
             "description": "ID of article to return",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -264,8 +263,7 @@
             "description": "Article id to delete",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -293,8 +291,7 @@
             "description": "ID of article to return",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -392,8 +389,7 @@
             "description": "ID of User to return",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -549,8 +545,7 @@
             "description": "User id to delete",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -578,8 +573,7 @@
             "description": "ID of user to return",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -678,8 +672,7 @@
             "description": "ID of comment to return",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -850,8 +843,7 @@
             "description": "Comment id to delete",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -879,8 +871,7 @@
             "description": "ID of comment to return",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -920,7 +911,7 @@
             "in": "query",
             "name": "id",
             "schema": {
-              "type": "integer"
+              "type": "string"
             },
             "required": false,
             "description": "Id of article."
@@ -929,7 +920,7 @@
             "in": "query",
             "name": "user_id",
             "schema": {
-              "type": "integer"
+              "type": "string"
             },
             "required": false,
             "description": "Id of user, creator of article."
@@ -1052,7 +1043,7 @@
             "in": "query",
             "name": "id",
             "schema": {
-              "type": "integer"
+              "type": "string"
             },
             "required": false,
             "description": "Id of user."
@@ -1193,7 +1184,7 @@
             "in": "query",
             "name": "id",
             "schema": {
-              "type": "integer"
+              "type": "string"
             },
             "required": false,
             "description": "Id of comment."
@@ -1202,7 +1193,7 @@
             "in": "query",
             "name": "user_id",
             "schema": {
-              "type": "integer"
+              "type": "string"
             },
             "required": false,
             "description": "Id of user."
@@ -1418,12 +1409,10 @@
         ],
         "properties": {
           "id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "user_id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "title": {
             "type": "string",
@@ -1456,8 +1445,7 @@
         "type": "object",
         "properties": {
           "user_id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "title": {
             "type": "string",
@@ -1490,16 +1478,13 @@
         ],
         "properties": {
           "id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "article_id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "user_id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "body": {
             "type": "string",
@@ -1524,12 +1509,10 @@
         "type": "object",
         "properties": {
           "article_id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "user_id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "body": {
             "type": "string",
@@ -1560,8 +1543,7 @@
         ],
         "properties": {
           "id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "email": {
             "type": "string"
