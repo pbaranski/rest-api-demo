@@ -45,7 +45,7 @@
             "in": "query",
             "name": "id",
             "schema": {
-              "type": "integer"
+              "type": "string"
             },
             "required": false,
             "description": "Id of article."
@@ -54,7 +54,7 @@
             "in": "query",
             "name": "user_id",
             "schema": {
-              "type": "integer"
+              "type": "string"
             },
             "required": false,
             "description": "Id of user, creator of article."
@@ -129,8 +129,7 @@
             "description": "ID of article to return",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -282,8 +281,7 @@
             "description": "Article id to delete",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -311,8 +309,7 @@
             "description": "ID of article to return",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -412,8 +409,7 @@
             "description": "ID of User to return",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -569,8 +565,7 @@
             "description": "User id to delete",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -598,8 +593,7 @@
             "description": "ID of user to return",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -698,8 +692,7 @@
             "description": "ID of comment to return",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -864,8 +857,7 @@
             "description": "Comment id to delete",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -893,8 +885,7 @@
             "description": "ID of comment to return",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -1018,12 +1009,10 @@
         "required":  ["user_id", "title", "body", "date"],
         "properties": {
           "id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "user_id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "title": {
             "type": "string",
@@ -1057,8 +1046,7 @@
         "type": "object",
         "properties": {
           "user_id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "title": {
             "type": "string",
@@ -1086,16 +1074,13 @@
         "required":  ["user_id", "article_id", "body", "date"],
         "properties": {
           "id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "article_id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "user_id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "body": {
             "type": "string",
@@ -1121,12 +1106,10 @@
         "type": "object",
         "properties": {
           "article_id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "user_id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "body": {
             "type": "string",
@@ -1153,8 +1136,7 @@
         "required": ["email", "firstname", "lastname", "avatar"],
         "properties": {
           "id": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "email": {
             "type": "string"
