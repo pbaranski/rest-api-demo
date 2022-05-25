@@ -226,7 +226,13 @@ module.exports = function (db, name, opts) {
     var resource = db.get(name).insert(req.body).value();
 
     res.setHeader('Access-Control-Expose-Headers', 'Location');
-    res.location(`${getFullURL(req)}/${resource.id}`);
+    
+    if (getFullURL(req).endsWith(resource.id)){
+       res.location(`${getFullURL(req)}`);
+    } else {
+      res.location(`${getFullURL(req)}/${resource.id}`);
+    }
+    
 
     res.status(201);
     res.locals.data = resource;
