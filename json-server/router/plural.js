@@ -19,7 +19,7 @@ module.exports = function (db, name, opts) {
       if (db.get(externalResource).value) {
         var query = {};
         var singularResource = pluralize.singular(name);
-        query[`${singularResource}${opts.foreignKeySuffix}`] = resource.id;
+        query[`${singularResource}_${opts.foreignKeySuffix.toLowerCase()}`] = resource.id;
         resource[externalResource] = db.get(externalResource).filter(query).value();
       }
     });
@@ -30,7 +30,8 @@ module.exports = function (db, name, opts) {
     e && [].concat(e).forEach(function (innerResource) {
       var plural = pluralize(innerResource);
       if (db.get(plural).value()) {
-        var prop = `${innerResource}${opts.foreignKeySuffix}`;
+        var singularResource = pluralize.singular(innerResource);
+        var prop = `${singularResource}_${opts.foreignKeySuffix.toLowerCase()}`;
         resource[innerResource] = db.get(plural).getById(resource[prop]).value();
       }
     });

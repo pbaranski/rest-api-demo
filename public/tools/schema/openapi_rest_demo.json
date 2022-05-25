@@ -4,7 +4,7 @@
     "title": "REST demo",
     "description": "This is a sample REST serverform jaktestowac.pl .",
     "termsOfService": "http://jaktestowac.pl/",
-    "version": "1.3.0"
+    "version": "1.3.1"
   },
   "externalDocs": {
     "description": "Find out more about Swagger",
@@ -12,7 +12,7 @@
   },
   "servers": [
     {
-      "url": "https://rest-demo-jt2.herokuapp.com/api"
+      "url": "http://localhost:3000/api"
     }
   ],
   "tags": [
@@ -112,8 +112,12 @@
             "required": true,
             "schema": {
               "oneOf": [
-                "type": "integer",
-                "type": "string"
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             }
           }
@@ -149,9 +153,13 @@
             "description": "id of article that need to be updated",
             "required": true,
             "schema": {
-               "oneOf": [
-                "type": "integer",
-                "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             }
           }
@@ -216,9 +224,13 @@
             "description": "id of article that need to be updated",
             "required": true,
             "schema": {
-               "oneOf": [
-                "type": "integer",
-                "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             }
           }
@@ -272,9 +284,13 @@
             "description": "Article id to delete",
             "required": true,
             "schema": {
-               "oneOf": [
-                "type": "integer",
-                "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             }
           }
@@ -303,9 +319,13 @@
             "description": "ID of article to return",
             "required": true,
             "schema": {
-               "oneOf": [
-                "type": "integer",
-                "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             }
           }
@@ -404,9 +424,13 @@
             "description": "ID of User to return",
             "required": true,
             "schema": {
-               "oneOf": [
-                "type": "integer",
-                "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             }
           }
@@ -446,9 +470,13 @@
             "description": "Id of user that need to be updated",
             "required": true,
             "schema": {
-               "oneOf": [
-                "type": "integer",
-                "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             }
           }
@@ -513,9 +541,13 @@
             "description": "id of user that need to be updated",
             "required": true,
             "schema": {
-               "oneOf": [
-                "type": "integer",
-                "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             }
           }
@@ -569,9 +601,13 @@
             "description": "User id to delete",
             "required": true,
             "schema": {
-               "oneOf": [
-                "type": "integer",
-                "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             }
           }
@@ -600,9 +636,13 @@
             "description": "ID of user to return",
             "required": true,
             "schema": {
-               "oneOf": [
-                "type": "integer",
-                "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             }
           }
@@ -702,9 +742,13 @@
             "description": "ID of comment to return",
             "required": true,
             "schema": {
-               "oneOf": [
-                "type": "integer",
-                "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             }
           }
@@ -749,9 +793,13 @@
             "description": "id of comment that need to be updated",
             "required": true,
             "schema": {
-               "oneOf": [
-                "type": "integer",
-                "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             }
           }
@@ -821,9 +869,13 @@
             "description": "id of comment that need to be updated",
             "required": true,
             "schema": {
-               "oneOf": [
-                "type": "integer",
-                "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             }
           }
@@ -882,9 +934,13 @@
             "description": "Comment id to delete",
             "required": true,
             "schema": {
-               "oneOf": [
-                "type": "integer",
-                "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             }
           }
@@ -953,9 +1009,13 @@
             "in": "query",
             "name": "id",
             "schema": {
-               "oneOf": [
-                  "type": "integer",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
                   "type": "string"
+                }
               ]
             },
             "required": false,
@@ -966,8 +1026,12 @@
             "name": "user_id",
             "schema": {
               "oneOf": [
-                "type": "integer",
-                "type": "string"
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             },
             "required": false,
@@ -1044,7 +1108,7 @@
               "type": "string"
             },
             "required": false,
-            "description": "Embed depending objects (users, comments)."
+            "description": "Embed depending objects (comments)."
           },
           {
             "in": "query",
@@ -1053,7 +1117,7 @@
               "type": "string"
             },
             "required": false,
-            "description": "Expand depending objects (users, comments)."
+            "description": "Expand depending objects (user)."
           }
         ],
         "operationId": "getArticlesQuery",
@@ -1091,9 +1155,13 @@
             "in": "query",
             "name": "id",
             "schema": {
-               "oneOf": [
-                "type": "integer",
-                "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             },
             "required": false,
@@ -1189,16 +1257,7 @@
               "type": "string"
             },
             "required": false,
-            "description": "Embed depending objects (users, comments)."
-          },
-          {
-            "in": "query",
-            "name": "_expand",
-            "schema": {
-              "type": "string"
-            },
-            "required": false,
-            "description": "Expand depending objects (users, comments)."
+            "description": "Embed depending objects (articles, comments)."
           }
         ],
         "operationId": "getUsersQuery",
@@ -1221,7 +1280,7 @@
         "tags": [
           "search"
         ],
-        "summary": "Get users with query",
+        "summary": "Get comments with query",
         "parameters": [
           {
             "in": "query",
@@ -1230,15 +1289,19 @@
               "type": "string"
             },
             "required": false,
-            "description": "Free search users."
+            "description": "Free search comments."
           },
           {
             "in": "query",
             "name": "id",
             "schema": {
               "oneOf": [
-                "type": "integer",
-                "type": "string"
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             },
             "required": false,
@@ -1249,8 +1312,12 @@
             "name": "user_id",
             "schema": {
               "oneOf": [
-                "type": "integer",
-                "type": "string"
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             },
             "required": false,
@@ -1260,9 +1327,13 @@
             "in": "query",
             "name": "article_id",
             "schema": {
-               "oneOf": [
-                "type": "integer",
-                "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             },
             "required": false,
@@ -1334,21 +1405,12 @@
           },
           {
             "in": "query",
-            "name": "_embed",
-            "schema": {
-              "type": "string"
-            },
-            "required": false,
-            "description": "Embed depending objects (users, comments)."
-          },
-          {
-            "in": "query",
             "name": "_expand",
             "schema": {
               "type": "string"
             },
             "required": false,
-            "description": "Expand depending objects (users, comments)."
+            "description": "Expand depending objects (user, article)."
           }
         ],
         "operationId": "getCommentsQuery",
@@ -1470,15 +1532,23 @@
         ],
         "properties": {
           "id": {
-           "oneOf": [
-              "type": "integer",
-              "type": "string"
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
             ]
           },
           "user_id": {
             "oneOf": [
-              "type": "integer",
-              "type": "string"
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
             ]
           },
           "title": {
@@ -1512,9 +1582,13 @@
         "type": "object",
         "properties": {
           "user_id": {
-           "oneOf": [
-              "type": "integer",
-              "type": "string"
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
             ]
           },
           "title": {
@@ -1552,14 +1626,22 @@
           },
           "article_id": {
             "oneOf": [
-              "type": "integer",
-              "type": "string"
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
             ]
           },
           "user_id": {
             "oneOf": [
-              "type": "integer",
-              "type": "string"
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
             ]
           },
           "body": {
@@ -1586,14 +1668,22 @@
         "properties": {
           "article_id": {
             "oneOf": [
-              "type": "integer",
-              "type": "string"
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
             ]
           },
           "user_id": {
             "oneOf": [
-              "type": "integer",
-              "type": "string"
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
             ]
           },
           "body": {
@@ -1626,8 +1716,12 @@
         "properties": {
           "id": {
             "oneOf": [
-              "type": "number",
-              "type": "string"
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
             ]
           },
           "email": {
@@ -1667,7 +1761,7 @@
           },
           "password": {
             "type": "string",
-            "format": "password" 
+            "format": "password"
           },
           "avatar": {
             "type": "string"
