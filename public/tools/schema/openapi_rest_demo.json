@@ -1108,7 +1108,7 @@
               "type": "string"
             },
             "required": false,
-            "description": "Embed depending objects (users, comments)."
+            "description": "Embed depending objects (comments)."
           },
           {
             "in": "query",
@@ -1117,7 +1117,7 @@
               "type": "string"
             },
             "required": false,
-            "description": "Expand depending objects (users, comments)."
+            "description": "Expand depending objects (user)."
           }
         ],
         "operationId": "getArticlesQuery",
@@ -1257,16 +1257,7 @@
               "type": "string"
             },
             "required": false,
-            "description": "Embed depending objects (users, comments)."
-          },
-          {
-            "in": "query",
-            "name": "_expand",
-            "schema": {
-              "type": "string"
-            },
-            "required": false,
-            "description": "Expand depending objects (users, comments)."
+            "description": "Embed depending objects (articles, comments)."
           }
         ],
         "operationId": "getUsersQuery",
@@ -1414,21 +1405,12 @@
           },
           {
             "in": "query",
-            "name": "_embed",
-            "schema": {
-              "type": "string"
-            },
-            "required": false,
-            "description": "Embed depending objects (users, comments)."
-          },
-          {
-            "in": "query",
             "name": "_expand",
             "schema": {
               "type": "string"
             },
             "required": false,
-            "description": "Expand depending objects (users, comments)."
+            "description": "Expand depending objects (user, article)."
           }
         ],
         "operationId": "getCommentsQuery",
