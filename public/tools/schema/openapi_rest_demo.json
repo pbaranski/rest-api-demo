@@ -4,7 +4,7 @@
     "title": "REST demo",
     "description": "This is a sample REST serverform jaktestowac.pl .",
     "termsOfService": "http://jaktestowac.pl/",
-    "version": "1.2.0"
+    "version": "1.3.0"
   },
   "externalDocs": {
     "description": "Find out more about Swagger",
@@ -12,7 +12,7 @@
   },
   "servers": [
     {
-      "url": "https://rest-demo-jt.herokuapp.com/api"
+      "url": "https://rest-demo-jt2.herokuapp.com/api"
     }
   ],
   "tags": [
@@ -111,7 +111,10 @@
             "description": "ID of article to return",
             "required": true,
             "schema": {
-              "type": "string"
+              "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             }
           }
         ],
@@ -146,7 +149,10 @@
             "description": "id of article that need to be updated",
             "required": true,
             "schema": {
-              "type": "string"
+               "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             }
           }
         ],
@@ -210,7 +216,10 @@
             "description": "id of article that need to be updated",
             "required": true,
             "schema": {
-              "type": "string"
+               "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             }
           }
         ],
@@ -263,7 +272,10 @@
             "description": "Article id to delete",
             "required": true,
             "schema": {
-              "type": "string"
+               "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             }
           }
         ],
@@ -291,7 +303,10 @@
             "description": "ID of article to return",
             "required": true,
             "schema": {
-              "type": "string"
+               "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             }
           }
         ],
@@ -389,7 +404,10 @@
             "description": "ID of User to return",
             "required": true,
             "schema": {
-              "type": "string"
+               "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             }
           }
         ],
@@ -428,7 +446,10 @@
             "description": "Id of user that need to be updated",
             "required": true,
             "schema": {
-              "type": "string"
+               "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             }
           }
         ],
@@ -492,7 +513,10 @@
             "description": "id of user that need to be updated",
             "required": true,
             "schema": {
-              "type": "string"
+               "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             }
           }
         ],
@@ -545,7 +569,10 @@
             "description": "User id to delete",
             "required": true,
             "schema": {
-              "type": "string"
+               "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             }
           }
         ],
@@ -573,7 +600,10 @@
             "description": "ID of user to return",
             "required": true,
             "schema": {
-              "type": "string"
+               "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             }
           }
         ],
@@ -672,7 +702,10 @@
             "description": "ID of comment to return",
             "required": true,
             "schema": {
-              "type": "string"
+               "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             }
           }
         ],
@@ -716,7 +749,10 @@
             "description": "id of comment that need to be updated",
             "required": true,
             "schema": {
-              "type": "string"
+               "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             }
           }
         ],
@@ -785,7 +821,10 @@
             "description": "id of comment that need to be updated",
             "required": true,
             "schema": {
-              "type": "string"
+               "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             }
           }
         ],
@@ -843,7 +882,10 @@
             "description": "Comment id to delete",
             "required": true,
             "schema": {
-              "type": "string"
+               "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             }
           }
         ],
@@ -911,7 +953,10 @@
             "in": "query",
             "name": "id",
             "schema": {
-              "type": "string"
+               "oneOf": [
+                  "type": "integer",
+                  "type": "string"
+              ]
             },
             "required": false,
             "description": "Id of article."
@@ -920,7 +965,10 @@
             "in": "query",
             "name": "user_id",
             "schema": {
-              "type": "string"
+              "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             },
             "required": false,
             "description": "Id of user, creator of article."
@@ -1043,7 +1091,10 @@
             "in": "query",
             "name": "id",
             "schema": {
-              "type": "string"
+               "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             },
             "required": false,
             "description": "Id of user."
@@ -1070,7 +1121,8 @@
             "in": "query",
             "name": "email",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "email"
             },
             "required": false,
             "description": "User email."
@@ -1184,7 +1236,10 @@
             "in": "query",
             "name": "id",
             "schema": {
-              "type": "string"
+              "oneOf": [
+                "type": "integer",
+                "type": "string"
+            ]
             },
             "required": false,
             "description": "Id of comment."
@@ -1193,7 +1248,10 @@
             "in": "query",
             "name": "user_id",
             "schema": {
-              "type": "string"
+              "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             },
             "required": false,
             "description": "Id of user."
@@ -1202,7 +1260,10 @@
             "in": "query",
             "name": "article_id",
             "schema": {
-              "type": "string"
+               "oneOf": [
+                "type": "integer",
+                "type": "string"
+              ]
             },
             "required": false,
             "description": "Id fo article."
@@ -1409,10 +1470,16 @@
         ],
         "properties": {
           "id": {
-            "type": "string"
+           "oneOf": [
+              "type": "integer",
+              "type": "string"
+            ]
           },
           "user_id": {
-            "type": "string"
+            "oneOf": [
+              "type": "integer",
+              "type": "string"
+            ]
           },
           "title": {
             "type": "string",
@@ -1445,7 +1512,10 @@
         "type": "object",
         "properties": {
           "user_id": {
-            "type": "string"
+           "oneOf": [
+              "type": "integer",
+              "type": "string"
+            ]
           },
           "title": {
             "type": "string",
@@ -1481,10 +1551,16 @@
             "type": "string"
           },
           "article_id": {
-            "type": "string"
+            "oneOf": [
+              "type": "integer",
+              "type": "string"
+            ]
           },
           "user_id": {
-            "type": "string"
+            "oneOf": [
+              "type": "integer",
+              "type": "string"
+            ]
           },
           "body": {
             "type": "string",
@@ -1509,10 +1585,16 @@
         "type": "object",
         "properties": {
           "article_id": {
-            "type": "string"
+            "oneOf": [
+              "type": "integer",
+              "type": "string"
+            ]
           },
           "user_id": {
-            "type": "string"
+            "oneOf": [
+              "type": "integer",
+              "type": "string"
+            ]
           },
           "body": {
             "type": "string",
@@ -1543,10 +1625,14 @@
         ],
         "properties": {
           "id": {
-            "type": "string"
+            "oneOf": [
+              "type": "number",
+              "type": "string"
+            ]
           },
           "email": {
-            "type": "string"
+            "type": "string",
+            "format": "email"
           },
           "firstname": {
             "type": "string"
@@ -1555,7 +1641,8 @@
             "type": "string"
           },
           "password": {
-            "type": "string"
+            "type": "string",
+            "format": "password"
           },
           "avatar": {
             "type": "string"
@@ -1569,7 +1656,8 @@
         "type": "object",
         "properties": {
           "email": {
-            "type": "string"
+            "type": "string",
+            "format": "email"
           },
           "firstname": {
             "type": "string"
@@ -1578,7 +1666,8 @@
             "type": "string"
           },
           "password": {
-            "type": "string"
+            "type": "string",
+            "format": "password" 
           },
           "avatar": {
             "type": "string"
