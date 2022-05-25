@@ -1280,7 +1280,7 @@
         "tags": [
           "search"
         ],
-        "summary": "Get users with query",
+        "summary": "Get comments with query",
         "parameters": [
           {
             "in": "query",
@@ -1289,7 +1289,7 @@
               "type": "string"
             },
             "required": false,
-            "description": "Free search users."
+            "description": "Free search comments."
           },
           {
             "in": "query",
