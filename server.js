@@ -3,7 +3,12 @@ const { validations, validateEmail } = require("./validators");
 const fs = require("fs");
 const jwt = require('jsonwebtoken')
 const authUserDb = './admins.json'
-const userdb = JSON.parse(fs.readFileSync(authUserDb, 'UTF-8'))
+
+
+function userDb(){
+  return JSON.parse(fs.readFileSync(authUserDb, 'UTF-8'));
+  
+}
 
 
 let updatedSchema = false;
@@ -125,7 +130,7 @@ function verifyToken(token) {
 // Check if the user exists in database
 function isAuthenticated({ email, password }) {
   return (
-    userdb.users.findIndex(
+    userDb().users.findIndex(
       (user) => user.email === email && user.password === password
     ) !== -1
   );
