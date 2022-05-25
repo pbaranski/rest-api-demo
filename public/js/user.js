@@ -67,6 +67,25 @@ const issuePutRequest = (id, data, responseHandler) => {
     .then(responseHandler);
 };
 
+const issuePatchRequest = (id, data, responseHandler) => {
+  // update data on the server:
+  const url = usersEndpoint + "/" + id;
+  console.log("PATCH request:", url, data);
+  fetch(url, {
+    method: "PATCH",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => {
+      showResponseOnUpdate(response);
+      return response.json();
+    })
+    .then(responseHandler);
+};
+
 const issueDeleteRequest = (id, responseHandler) => {
   // delete data on the server:
   const url = usersEndpoint + "/" + id;
@@ -106,6 +125,22 @@ const handleUpdate = (ev) => {
   issuePutRequest(id, data, callback);
 };
 
+const handlePartialUpdate = (ev) => {
+  const id = ev.target.getAttribute("data-id");
+  const container = ev.target.parentElement.parentElement;
+  const data = {
+    email: container.querySelector("#email").value,
+  };
+  const callback = (item) => {
+    if (item["error"] === undefined) {
+      container.innerHTML = getItemHTML(item);
+    }
+    attachEventHandlers();
+  };
+  issuePatchRequest(id, data, callback);
+};
+
+
 const handleCreate = () => {
   const container = document.querySelector(".add-new-panel");
   data = {
@@ -140,6 +175,9 @@ const attachEventHandlers = () => {
   for (elem of document.querySelectorAll(".edit")) {
     elem.onclick = showEditForm;
   }
+    for (elem of document.querySelectorAll(".emailEdit")) {
+    elem.onclick = showEmailEditForm;
+  }
   //    document.querySelector('#add-new').onclick = () => {
   //        const container = document.querySelector('.add-new-panel');
   //        container.querySelector('.firstname').value = '';
@@ -163,6 +201,14 @@ const attachFormEventHandlers = (item, container) => {
   };
 };
 
+const attachEmailFormEventHandlers = (item, container) => {
+  container.querySelector(".partialUpdate").onclick = handlePartialUpdate;
+  container.querySelector(".cancel").onclick = () => {
+    container.innerHTML = getItemHTML(item);
+    attachEventHandlers();
+  };
+};
+
 const showEditForm = (ev) => {
   const id = ev.target.id;
   const url = usersEndpoint + "/" + id;
@@ -172,6 +218,19 @@ const showEditForm = (ev) => {
     .then((item) => {
       displayForm(item, cardElement);
       attachFormEventHandlers(item, cardElement);
+    });
+  return false;
+};
+
+const showEmailEditForm = (ev) => {
+  const id = ev.target.id;
+  const url = usersEndpoint + "/" + id;
+  const cardElement = ev.target.parentElement.parentElement;
+  fetch(url)
+    .then((response) => response.json())
+    .then((item) => {
+      displayEmailForm(item, cardElement);
+      attachEmailFormEventHandlers(item, cardElement);
     });
   return false;
 };
@@ -203,6 +262,24 @@ const displayForm = (item, container) => {
     `;
 };
 
+const displayEmailForm = (item, container) => {
+  container.innerHTML = `
+        <div style="margin-top:7px;">
+            <label>id:</label><span>${item.id}</span><br>
+            <label>firstname:</label>${item.firstname}<br>
+            <label>lastname:</label>${item.lastname}<br>
+            <label>email:</label>
+            <input type="text" id="email"  value="${item.email}"><br>
+            <label>avatar:</label><a href="user.html?id=${item.id}" id="gotoUser${item.id}"><img src="${item.avatar}" /></a>
+            
+            </br>
+            <button type="button" data-id="${item.id}" class="partialUpdate button-primary">Update</button>
+            <button type="button" class="cancel">Cancel</button>
+        </div>
+    `;
+};
+
+
 const getItemHTML = (item) => {
   let controls = "";
 
@@ -218,7 +295,7 @@ const getItemHTML = (item) => {
         <label>id:</label><span>${item.id}</span><br>
         <label>firstname:</label><span>${item.firstname}</span><br>
         <label>lastname:</label><span>${item.lastname}</span><br>
-        <label>email:</label><span>${item.email}</span><br>
+        <label>email:</label><span>${item.email}</span><i class="fas fa-edit emailEdit" id="${item.id}"></i><br>
         <label>avatar:</label><img src="${item.avatar}" />
     </div>`;
 };

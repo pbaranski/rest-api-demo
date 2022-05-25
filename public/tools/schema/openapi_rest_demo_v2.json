@@ -63,7 +63,7 @@
     "/login": {
       "post": {
         "tags": ["admin"],
-        "summary": "login as user",
+        "summary": "login as user, received token will be valid for 1 hour",
         "operationId": "adminLogin",
         "requestBody": {
           "content": {
@@ -106,7 +106,7 @@
         "description": "Get list of plugins. Requires Bearer Authentication (also called token authentication). In Swagger UI use padlock on right to configure token.",
         "operationId": "getPlugins",
         "responses": {
-          "200": {
+          "201": {
             "description": "successful operation",
             "content": {
               "application/json": {
