@@ -136,6 +136,46 @@ function isAuthenticated({ email, password }) {
   );
 }
 
+// Replace content of two file with another (i.e. db restoration)
+function replaceContents(file, replacement, cb) {
+
+  fs.readFile(replacement, (err, contents) => {
+    if (err) return cb(err);
+    fs.writeFile(file, contents, cb);
+  });
+
+}
+
+// Restore admin DBs
+server.get("/api/v2/restoreDB", (req, res) => {
+  logDebug("restore DB for admins and plugins");
+  let error1 = '';
+  let error2 = '';
+
+  replaceContents('admin-db-base.json', 'admin-db.json', err => {
+    if (err) {
+      error1 = err;
+    }
+    console.log('admin db restored');
+  });
+
+  replaceContents('admins.json', 'admins-base.json', err => {
+    if (err) {
+      error2 = err;
+    }
+    console.log('admins db restored');
+  });
+
+  if (error1 || error2) {
+      const status = 401;
+      const message = `Restore admin db (plugins) err: ${error1}, Restore admins err: ${error2}`;
+      res.status(status).json({ status, message });
+      return;
+  }
+  
+  res.status(200).json("DBs: admin (plugins) and admins restored;");
+});
+
 // Register New User
 server.post("/api/v2/register", (req, res) => {
   logDebug("register endpoint called; request body:");
