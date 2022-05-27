@@ -23,13 +23,17 @@
     {
       "name": "plugins",
       "description": "Plugin management"
+    },
+    {
+      "name": "other",
+      "description": "Other operations"
     }
   ],
   "paths": {
     "/register": {
       "post": {
         "tags": ["admin"],
-        "summary": "register new user",
+        "summary": "Register new user",
         "operationId": "adminRegister",
         "requestBody": {
           "content": {
@@ -56,14 +60,13 @@
             "description": "Invalid data supplied",
             "content": {}
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
       }
     },
     "/login": {
       "post": {
         "tags": ["admin"],
-        "summary": "login as user, received token will be valid for 1 hour",
+        "summary": "Login as user, received token will be valid for 1 hour",
         "operationId": "adminLogin",
         "requestBody": {
           "content": {
@@ -90,8 +93,20 @@
             "description": "Invalid data supplied",
             "content": {}
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
+      }
+    },
+    "/restoreDB": {
+      "get": {
+        "tags": ["other"],
+        "summary": "Restore DB",
+        "operationId": "restoreDB",
+        "responses": {
+          "200": {
+            "description": "Databases restored to initial state",
+            "content": {}
+          }
+        }
       }
     },
     "/plugins": {
@@ -162,8 +177,7 @@
             "description": "Invalid plugin supplied",
             "content": {}
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
       }
     },
     "/plugins/{id}": {
