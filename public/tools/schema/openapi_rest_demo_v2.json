@@ -308,6 +308,26 @@
           }
         }
       }
+    },
+    "/restoreDB": {
+      "get": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "other"
+        ],
+        "summary": "Restore DB",
+        "operationId": "restoreDB",
+        "responses": {
+          "201": {
+            "description": "Database cleared",
+            "content": {}
+          }
+        }
+      }
     }
   },
   "components": {

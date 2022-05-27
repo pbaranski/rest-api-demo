@@ -69,12 +69,26 @@ const customRoutes = (req, res, next) => {
         console.log(error);
       }
     }
-    if (req.method === "GET" && req.url.endsWith("/restoreDB")) {
+
+    if (req.method === "GET" && req.url.endsWith("/v2/restoreDB")) {
+      const db = JSON.parse(
+        fs.readFileSync(path.join(__dirname, "admin-db-base.json"), "utf8")
+      );
+      adminRouter.db.setState(db);
+      logDebug("restoreDB for admin-db was successful");
+
+      const dbAdmins = JSON.parse(
+        fs.readFileSync(path.join(__dirname, "admins-base.json"), "utf8")
+      );
+      fs.writeFileSync(path.join(__dirname, authUserDb), JSON.stringify(dbAdmins))
+      logDebug("restoreDB for admins was successful");
+      res.status(201).send({ message: "Database v2 successfully restored" });
+    } else if (req.method === "GET" && req.url.endsWith("/restoreDB")) {
       const db = JSON.parse(
         fs.readFileSync(path.join(__dirname, "db-base.json"), "utf8")
       );
       router.db.setState(db);
-      logDebug("restoreDB successful");
+      logDebug("restoreDB was successful");
       res.status(201).send({ message: "Database successfully restored" });
     } else if (req.method === "GET" && req.url.endsWith("/db")) {
       const dbData = JSON.parse(
