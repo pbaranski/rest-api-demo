@@ -1472,42 +1472,6 @@
           }
         }
       }
-    },
-    "/pluginstatuses": {
-      "get": {
-        "tags": [
-          "other"
-        ],
-        "summary": "Get list of valid plugin statuses",
-        "operationId": "getPluginStatuses",
-        "responses": {
-          "default": {
-            "description": "successful operation",
-            "content": {}
-          }
-        }
-      }
-    },
-    "/token": {
-      "get": {
-        "tags": [
-          "other"
-        ],
-        "summary": "Gets token needed for plugins. Reset daily at 00:00.",
-        "operationId": "getPluginsToken",
-        "responses": {
-          "default": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Token"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
