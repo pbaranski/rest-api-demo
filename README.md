@@ -50,7 +50,7 @@ Application will be available at `http://localhost:3000`
  - Create a free account: https://dashboard.render.com/register
  - After successful registration, click the Deploy button below:
 
- [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/pbaranski/rest-api-demo/tree/fix-render-deploy-issues)
+ [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/jaktestowac/rest-api-demo)
 
  Deployment steps (high level):
 
